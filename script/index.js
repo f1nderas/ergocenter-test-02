@@ -66,8 +66,17 @@ window.onload = function () {
   const dataProcessor = new DataProcessor(dataFetcher);
   const dataPrinter = new DataPrinter();
 
-  dataProcessor
-    .setData()
-    .then(() => dataProcessor.printData())
-    .catch((error) => console.error("Error:", error));
+  function hasClass(element, className) {
+    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+  }
+  if (hasClass(document.body, 'news')) {
+    dataProcessor
+      .setData()
+      .then(() => dataProcessor.printData())
+      .catch((error) => console.error("Error:", error));
+  } else {
+
+  }
+
+
 };
