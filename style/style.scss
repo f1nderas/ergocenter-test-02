@@ -168,9 +168,9 @@
     .cont-1 {
       &_car-list {
         display: none;
-        // &-slider {
-        //   display: block;
-        // }
+        &-slider {
+          display: block;
+        }
       }
     }
   }
@@ -343,12 +343,6 @@
       &:hover {
         background: antiquewhite;
       }
-      // &:first-child {
-      //   padding-left: 0;
-      // }
-      // &:last-child {
-      //   padding-right: 0;
-      // }
     }
   }
   @media (max-width: 991px) {

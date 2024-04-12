@@ -110,7 +110,9 @@
     .main-cont-1 {
       margin-bottom: 6.5rem; }
     .main .cont-1_car-list {
-      display: none; } }
+      display: none; }
+      .main .cont-1_car-list-slider {
+        display: block; } }
   @media (max-width: 768px) {
     .main-cont-1 {
       margin-bottom: 2.5rem; }
