@@ -37,6 +37,25 @@ window.onload = function () {
     }
   });
 
+  const checkbox = document.querySelector("#burger-checkbox");
+  const burderWrapper = document.querySelector(".burger-wrapper-js");
+  const floatNav = document.querySelector(".float-nav");
+  const floatMenuHigh = floatMenu.clientHeight;
+  console.log(floatMenuHigh);
+  checkbox.addEventListener("change", handleCheckboxChange);
+
+  function handleCheckboxChange() {
+    if (checkbox.checked) {
+      burderWrapper.style.backgroundColor = "#dfe1ea";
+      floatNav.style.top = floatMenuHigh +'px';
+      floatNav.classList.add('float-nav-active')
+    } else {
+      burderWrapper.style.backgroundColor = "#2b3671";
+      floatNav.style.top = 0
+      floatNav.classList.remove('float-nav-active')
+    }
+  }
+
   class DataProcessor {
     constructor(dataFetcher) {
       this.dataFetcher = dataFetcher;
@@ -67,16 +86,13 @@ window.onload = function () {
   const dataPrinter = new DataPrinter();
 
   function hasClass(element, className) {
-    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+    return (" " + element.className + " ").indexOf(" " + className + " ") > -1;
   }
-  if (hasClass(document.body, 'news')) {
+
+  if (hasClass(document.body, "news")) {
     dataProcessor
       .setData()
       .then(() => dataProcessor.printData())
       .catch((error) => console.error("Error:", error));
-  } else {
-
   }
-
-
 };
