@@ -20,6 +20,9 @@
     line-height: 30px;
     opacity: 0.5; }
     .header-nav_list .div_item.active {
+      opacity: 1;
+      font-weight: 700; }
+    .header-nav_list .div_item:hover {
       opacity: 1; }
 @media (max-width: 991px) {
   .header-line {
@@ -249,7 +252,9 @@
       padding: 1rem 1rem;
       align-content: center; }
       .float-menu .float-nav .div_item:hover {
-        background: antiquewhite; }
+        background-color: #e2e6e8; }
+      .float-menu .float-nav .div_item.active {
+        font-weight: 700; }
   @media (max-width: 991px) {
     .float-menu .float-phone {
       font-size: 1.6rem; } }
@@ -278,7 +283,7 @@
         .float-menu .float-nav .div_item.active {
           background-color: #e2e6e8; }
         .float-menu .float-nav .div_item:hover {
-          background-color: initial; } }
+          background-color: #e2e6e8; } }
 
 .burger {
   position: relative;

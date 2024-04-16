@@ -27,6 +27,10 @@
       opacity: 0.5;
       &.active {
         opacity: 1;
+        font-weight: 700;
+      }
+      &:hover{
+        opacity: 1;
       }
     }
   }
@@ -363,7 +367,10 @@
       padding: 1rem 1rem;
       align-content: center;
       &:hover {
-        background: antiquewhite;
+        background-color: #e2e6e8;
+      }
+      &.active{
+        font-weight: 700;
       }
     }
   }
@@ -400,7 +407,7 @@
           background-color: #e2e6e8;
         }
         &:hover {
-          background-color: initial;
+          background-color: #e2e6e8;
         }
       }
     }
