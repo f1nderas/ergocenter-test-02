@@ -273,8 +273,10 @@
         padding: 0.8rem;
         font-size: 1.8rem;
         text-decoration: none; }
+        .float-menu .float-nav .div_item.active {
+          background-color: #e2e6e8; }
         .float-menu .float-nav .div_item:hover {
-          background-color: #e2e6e8; } }
+          background-color: initial; } }
 
 .burger {
   position: relative;

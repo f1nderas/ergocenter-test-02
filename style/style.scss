@@ -345,10 +345,10 @@
     padding: 1rem 0;
     margin-left: auto;
   }
-  .float-logo{
+  .float-logo {
     height: 3rem;
     display: none;
-    .div_logo{
+    .div_logo {
       height: 100%;
     }
   }
@@ -375,7 +375,7 @@
     }
   }
   @media (max-width: 768px) {
-    .float-logo{
+    .float-logo {
       display: block;
     }
     .float-nav {
@@ -394,8 +394,11 @@
         padding: 0.8rem;
         font-size: 1.8rem;
         text-decoration: none;
+        &.active {
+          background-color: #e2e6e8;
+        }
         &:hover {
-          background-color: #e2e6e8
+          background-color: initial;
         }
       }
     }

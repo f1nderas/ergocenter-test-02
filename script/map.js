@@ -1,9 +1,11 @@
 // Пример: https://openlayers.org/en/latest/examples/simple.html
 // Документация: https://openlayers.org/en/latest/apidoc/module-ol_source_OSM-OSM.html
 
-window.onload = init;
+// window.onload = init;
 
+init()
 function init() {
+
   const ergocenter = [35.904323, 56.883135];
 
   const map = new ol.Map({
@@ -17,7 +19,7 @@ function init() {
     target: "map",
     view: new ol.View({
       center: ol.proj.fromLonLat(ergocenter),
-      zoom: 14,
+      zoom: 10,
     }),
   });
 
