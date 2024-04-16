@@ -31,9 +31,9 @@ window.onload = function () {
   window.addEventListener("scroll", function () {
     scrollPosition = window.scrollY;
     if (headerHigh < scrollPosition) {
-      floatMenu.style.opacity = 1;
+      floatMenu.classList.add('active')
     } else {
-      floatMenu.style.opacity = 0;
+      floatMenu.classList.remove('active')
     }
   });
 
