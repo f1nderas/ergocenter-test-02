@@ -1,0 +1,63 @@
+.header {
+  &-line {
+    margin-bottom: 2.5rem;
+    .div_img {
+      display: block;
+      width: 100%;
+    }
+  }
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    .div_logo {
+      height: 51px;
+    }
+    .div_phone {
+      font-size: 3rem;
+      line-height: 3rem;
+      font-weight: 400;
+    }
+  }
+  &-nav_list {
+    display: flex;
+    gap: 2rem;
+    .div_item {
+      line-height: 30px;
+      opacity: 0.5;
+      &-active {
+        opacity: 1;
+        font-weight: 700;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    &-line {
+      margin-bottom: 1.5rem;
+    }
+  }
+  @media (max-width: 768px) {
+    &-line {
+      margin-bottom: 0.5rem;
+    }
+    &-top {
+      .div_logo {
+        height: 43px;
+      }
+      .div_phone {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+    &-nav_list {
+      gap: 1rem;
+      .div_item {
+        line-height: inherit;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.slick {
+  &-slide {
+    height: 30rem;
+    display: flex;
+    img {
+      margin: 0 auto;
+      height: inherit;
+    }
+  }
+  &-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 3rem;
+    img {
+      height: 100%;
+    }
+  }
+  &-prev {
+    left: -5%;
+  }
+  &-next {
+    right: -5%;
+    img {
+      transform: rotate(90deg);
+    }
+  }
+  @media (max-width: 768px) {
+    &-slide {
+      height: 24rem;
+    }
+  }
+}

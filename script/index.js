@@ -1,5 +1,7 @@
 import DataFetcher from "./fetch.js";
 import DataPrinter from "./print.js";
+import floatMenuScript from "./floatMenu.js"
+import hideMenuScript from "./hideMenu.js";
 
 $(document).ready(function () {
   $(".cont-1_car-list-slider").slick({
@@ -24,35 +26,8 @@ $(document).ready(function () {
 });
 
 window.onload = function () {
-  const header = document.querySelector(".header");
-  const floatMenu = document.querySelector("#float-menu");
-  const headerHigh = header.clientHeight;
-  let scrollPosition = 0;
-  window.addEventListener("scroll", function () {
-    scrollPosition = window.scrollY;
-    if (headerHigh < scrollPosition) {
-      floatMenu.classList.add('active')
-    } else {
-      floatMenu.classList.remove('active')
-    }
-  });
-
-  const checkbox = document.querySelector("#burger-checkbox");
-  const burderWrapper = document.querySelector(".burger-wrapper-js");
-  const floatNav = document.querySelector(".float-nav");
-  const floatMenuHigh = floatMenu.clientHeight;
-  floatNav.style.top = floatMenuHigh +'px';
-  checkbox.addEventListener("change", handleCheckboxChange);
-
-  function handleCheckboxChange() {
-    if (checkbox.checked) {
-      burderWrapper.style.backgroundColor = "#dfe1ea";
-      floatNav.classList.add('float-nav-active')
-    } else {
-      burderWrapper.style.backgroundColor = "#2b3671";
-      floatNav.classList.remove('float-nav-active')
-    }
-  }
+  floatMenuScript()
+  hideMenuScript()
 
   class DataProcessor {
     constructor(dataFetcher) {

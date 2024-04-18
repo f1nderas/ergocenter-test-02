@@ -1,101 +1,130 @@
-// Пример: https://openlayers.org/en/latest/examples/simple.html
-// Документация: https://openlayers.org/en/latest/apidoc/module-ol_source_OSM-OSM.html
+const ergocenterCoordinate = [35.904323, 56.883135];
+const ergocenter = ol.proj.fromLonLat(ergocenterCoordinate);
 
-// window.onload = init;
+const container = document.getElementById('popup');
+const content = document.getElementById('popup-content');
+const closer = document.getElementById('popup-closer');
 
-init()
-function init() {
+const overlay = new ol.Overlay({
+  element: container,
+  autoPan: {
+    animation: {
+      duration: 250,
+    },
+  },
+});
 
-  const ergocenter = [35.904323, 56.883135];
 
-  const map = new ol.Map({
-    layers: [
-      new ol.layer.Tile({
-        source: new ol.source.OSM({
-          url: "//192.168.25.214:8012/wmts/osm900913/osm_grid/{z}/{x}/{y}.png",
-        }),
+const view = new ol.View({
+  center: ergocenter,
+  zoom: 6,
+});
+
+const map = new ol.Map({
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM({
+        url: "//192.168.25.214:8012/wmts/osm900913/osm_grid/{z}/{x}/{y}.png",
+        preload: 4,
       }),
-    ],
-    target: "map",
-    view: new ol.View({
-      center: ol.proj.fromLonLat(ergocenter),
-      zoom: 10,
     }),
-  });
+  ],
+  target: "map",
+  view: view,
+});
 
-  var iconFeature = new ol.Feature({
-    geometry: new ol.geom.Point(ol.proj.fromLonLat(ergocenter)),
-  });
+const iconFeature = new ol.Feature({
+  geometry: new ol.geom.Point(ergocenter),
+});
 
-  var iconStyle = new ol.style.Style({
-    image: new ol.style.Icon({
-      anchor: [0, 0],
-      src: "../img/you.png",
-      scale: 0.03,
-    }),
-  });
+const iconStyle = new ol.style.Style({
+  image: new ol.style.Icon({
+    anchor: [0, 0],
+    anchorXUnits: "fraction",
+    anchorYUnits: "pixels",
+    src: "img/marker.svg",
+  }),
+});
 
-  iconFeature.setStyle(iconStyle);
+iconFeature.setStyle(iconStyle);
 
-  var vectorSource = new ol.source.Vector({
-    features: [iconFeature],
-  });
+const vectorSource = new ol.source.Vector({
+  features: [iconFeature],
+});
 
-  var vectorLayer = new ol.layer.Vector({
-    source: vectorSource,
-  });
+const vectorLayer = new ol.layer.Vector({
+  source: vectorSource,
+});
 
-  map.addLayer(vectorLayer);
+map.addLayer(vectorLayer);
+
+const navWrapper = document.querySelector(".ol-overlaycontainer-stopevent");
+const button = document.createElement("button");
+const image = document.createElement("img");
+
+button.classList.add("ol-geo");
+button.id = "ol-geo";
+image.src = "../img/geo.svg";
+
+button.appendChild(image);
+navWrapper.appendChild(button);
+
+function onClick(id, callback) {
+  document.getElementById(id).addEventListener("click", callback);
 }
 
-/*
-В примере кода, который я предоставил, используются следующие функции и классы 
-из библиотеки OpenLayers:
+function flyTo(location, done) {
+  const duration = 2000;
+  const zoom = view.getZoom();
+  let parts = 2;
+  let called = false;
+  function callback(complete) {
+    --parts;
+    if (called) {
+      return;
+    }
+    if (parts === 0 || !complete) {
+      called = true;
+      done(complete);
+    }
+  }
+  view.animate(
+    {
+      center: location,
+      duration: duration,
+    },
+    callback
+  );
+  view.animate(
+    {
+      zoom: zoom - 1,
+      duration: duration / 2,
+    },
+    {
+      zoom: zoom,
+      duration: duration / 2,
+    },
+    callback
+  );
+}
 
-1. `ol.Map`: Это класс, который создает экземпляр карты.
- Он принимает объект с настройками, такими как целевой элемент для 
- отображения карты (`target`),
- слои (`layers`), и вид карты (`view`).
+onClick("ol-geo", function () {
+  view.animate({
+    center: ergocenter,
+    duration: 1000,
+  });
+});
 
-2. `ol.layer.Tile`: Этот класс создает слой для отображения тайлов,
- которые могут быть загружены асинхронно. 
- В этом примере мы используем его для создания слоя, 
- использующего OpenStreetMap в качестве источника тайлов.
+closer.onclick = function () {
+  overlay.setPosition(undefined);
+  closer.blur();
+  return false;
+};
 
-3. `ol.source.OSM`: Этот класс создает источник данных для слоя тайлов, 
-который использует OpenStreetMap.
 
-4. `ol.View`: Этот класс создает объект, представляющий текущее отображение карты,
- включая координаты центра (`center`) и масштаб (`zoom`).
-
-5. `ol.Feature`: Этот класс представляет геометрическую фигуру
- (например, точку, линию или полигон) с дополнительной информацией, такой как стиль.
-  В этом примере мы используем его для создания маркера.
-
-6. `ol.geom.Point`: Этот класс создает геометрический объект, 
-представляющий точку на карте.
-
-7. `ol.proj.fromLonLat`: Эта функция преобразует географические координаты 
-(долготу и широту) в координаты карты.
-
-8. `ol.source.Vector`: Этот класс создает источник данных для векторных слоев. 
-В этом примере мы используем его для создания источника данных для слоя с маркером.
-
-9. `ol.layer.Vector`: Этот класс создает слой для отображения векторных данных. 
-В этом примере мы используем его для создания слоя с маркером.
-
-10. `ol.style.Style`: Этот класс создает стиль для геометрических объектов.
- В этом примере мы используем его для создания стиля для маркера.
-
-11. `ol.style.Icon`: Этот класс создает стиль для иконки, 
-которая будет использоваться для маркера.
- В этом примере мы используем его для создания стиля для маркера с использованием 
- другой иконки.
-
-12. `iconFeature.setStyle(iconStyle)`: Этот метод устанавливает 
-стиль для фигуры (маркера). В этом примере мы используем его для установки стиля 
-для маркера с использованием другой иконки.
-
-13. `map.addLayer(vectorLayer)`: Этот метод добавляет слой на карту.
- В этом примере мы используем его для добавления слоя с маркером на карту.
-*/
+map.on("click", function (evt) {
+  map.forEachFeatureAtPixel(evt.pixel, (feature) => {
+    content.innerHTML = 'letsssgooo'
+    overlay.setPosition(evt.coordinate);
+  });
+});
