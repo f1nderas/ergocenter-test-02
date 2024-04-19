@@ -1,4 +1,5 @@
 const ergocenterCoordinate = [35.904323, 56.883135];
+const newCoordinate = [0,0]
 const ergocenter = ol.proj.fromLonLat(ergocenterCoordinate);
 
 const container = document.getElementById('popup');
@@ -31,6 +32,7 @@ const map = new ol.Map({
   ],
   target: "map",
   view: view,
+  overlays: [overlay],
 });
 
 const iconFeature = new ol.Feature({
@@ -39,9 +41,6 @@ const iconFeature = new ol.Feature({
 
 const iconStyle = new ol.style.Style({
   image: new ol.style.Icon({
-    anchor: [0, 0],
-    anchorXUnits: "fraction",
-    anchorYUnits: "pixels",
     src: "img/marker.svg",
   }),
 });
@@ -123,8 +122,14 @@ closer.onclick = function () {
 
 
 map.on("click", function (evt) {
+  console.log(evt.coordinate);
   map.forEachFeatureAtPixel(evt.pixel, (feature) => {
-    content.innerHTML = 'letsssgooo'
+    content.innerHTML = `Тверь
+    СВЕРДЛОВСКИЙ ПЕРЕУЛОК, 12
+    ОФИС 112`
+    console.log(evt);
+    console.log();
+    console.log(feature);
     overlay.setPosition(evt.coordinate);
   });
 });

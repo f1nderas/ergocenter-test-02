@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header-line {
   margin-bottom: 2.5rem; }
   .header-line .div_img {
@@ -244,14 +245,6 @@
   height: 70rem;
   margin: 0 auto; }
 
-.ol-overlaycontainer-stopevent {
-  display: flex;
-  padding-left: 48px;
-  padding-top: 12px;
-  padding-right: 12px;
-  flex-direction: column;
-  align-items: flex-end; }
-
 .ol-zoom {
   position: absolute;
   right: 8px;
@@ -286,9 +279,6 @@
   opacity: 0.7;
   white-space: nowrap; }
 
-.ol-overlay-container {
-  transform: translate(0) !important; }
-
 .ol-attribution {
   display: none; }
 
@@ -300,6 +290,115 @@
   cursor: pointer; }
   .ol-geo:hover {
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2); }
+
+.controls-view_wrapper {
+  position: absolute;
+  right: 8px;
+  top: 64px;
+  bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none; }
+
+.controls-view_slot {
+  flex-grow: 1;
+  flex-basis: 0; }
+
+.controls-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0; }
+
+.controls-view_group {
+  padding: 4px;
+  pointer-events: auto; }
+
+.controls-view_zoom {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  cursor: pointer; }
+  .controls-view_zoom:hover {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2); }
+
+.button {
+  position: relative;
+  display: inline-block;
+  border: 0;
+  padding: 0;
+  border-radius: 12px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  pointer-events: none;
+  transition: color 0.1s ease-out;
+  background: 0 0;
+  background-color: white; }
+
+.button-top {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.button-bottom {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.button-geo {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2); }
+  .button-geo:hover {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2); }
+    .button-geo:hover .button__icon {
+      color: black; }
+
+.controls-view_geo {
+  cursor: pointer; }
+
+.button__icon {
+  color: #4d4d4d; }
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 280px; }
+  .ol-popup::after, .ol-popup::before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none; }
+  .ol-popup::after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px; }
+  .ol-popup::before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px; }
+
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px; }
+
+.ol-popup-closer::after {
+  content: "✖"; }
 
 .main {
   margin-bottom: 3rem; }
