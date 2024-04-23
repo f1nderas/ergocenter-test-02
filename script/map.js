@@ -1,10 +1,14 @@
+import onClick from "./onClick.js";
+import zooomIn from "./mapComponents/zoomIn.js";
+import zoomOut from "./mapComponents/zoomOut.js";
+import DataFetcher from "./fetch.js";
+
 const ergocenterCoordinate = [35.904323, 56.883135];
-const newCoordinate = [0,0]
 const ergocenter = ol.proj.fromLonLat(ergocenterCoordinate);
 
-const container = document.getElementById('popup');
-const content = document.getElementById('popup-content');
-const closer = document.getElementById('popup-closer');
+const container = document.getElementById("popup");
+const content = document.querySelector(".popup-content-js");
+const closer = document.querySelector(".popup-closer-js");
 
 const overlay = new ol.Overlay({
   element: container,
@@ -15,10 +19,9 @@ const overlay = new ol.Overlay({
   },
 });
 
-
 const view = new ol.View({
   center: ergocenter,
-  zoom: 6,
+  zoom: 14,
 });
 
 const map = new ol.Map({
@@ -42,6 +45,7 @@ const iconFeature = new ol.Feature({
 const iconStyle = new ol.style.Style({
   image: new ol.style.Icon({
     src: "img/marker.svg",
+    anchor: [0.5, 1],
   }),
 });
 
@@ -58,60 +62,20 @@ const vectorLayer = new ol.layer.Vector({
 map.addLayer(vectorLayer);
 
 const navWrapper = document.querySelector(".ol-overlaycontainer-stopevent");
-const button = document.createElement("button");
-const image = document.createElement("img");
+const controlsView = document.querySelector(".controls-view_wrapper");
 
-button.classList.add("ol-geo");
-button.id = "ol-geo";
-image.src = "../img/geo.svg";
+navWrapper.appendChild(controlsView);
 
-button.appendChild(image);
-navWrapper.appendChild(button);
+onClick("btn_zoom-in-js", () => zooomIn(map));
+onClick("btn_zoom-out-js", () => zoomOut(map));
 
-function onClick(id, callback) {
-  document.getElementById(id).addEventListener("click", callback);
-}
-
-function flyTo(location, done) {
-  const duration = 2000;
-  const zoom = view.getZoom();
-  let parts = 2;
-  let called = false;
-  function callback(complete) {
-    --parts;
-    if (called) {
-      return;
-    }
-    if (parts === 0 || !complete) {
-      called = true;
-      done(complete);
-    }
-  }
-  view.animate(
-    {
-      center: location,
-      duration: duration,
-    },
-    callback
-  );
-  view.animate(
-    {
-      zoom: zoom - 1,
-      duration: duration / 2,
-    },
-    {
-      zoom: zoom,
-      duration: duration / 2,
-    },
-    callback
-  );
-}
-
-onClick("ol-geo", function () {
+onClick("btn-geo-js", () => {
   view.animate({
     center: ergocenter,
     duration: 1000,
+    zoom: 16
   });
+  loadCoordinates()
 });
 
 closer.onclick = function () {
@@ -120,16 +84,52 @@ closer.onclick = function () {
   return false;
 };
 
-
 map.on("click", function (evt) {
-  console.log(evt.coordinate);
   map.forEachFeatureAtPixel(evt.pixel, (feature) => {
     content.innerHTML = `Тверь
     СВЕРДЛОВСКИЙ ПЕРЕУЛОК, 12
-    ОФИС 112`
-    console.log(evt);
-    console.log();
-    console.log(feature);
+    ОФИС 112`;
     overlay.setPosition(evt.coordinate);
   });
 });
+
+const url = "script/mapComponents/coordinates.json"
+
+async function loadCoordinates() {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const coordinates = await response.json();
+    const lineFeature = createLineFromCoordinates(coordinates, 'bussStop2');
+    // Создание векторного слоя для линии
+    const lineLayer = new ol.layer.Vector({
+      source: new ol.source.Vector({
+        features: [lineFeature],
+      }),
+    });
+    // Добавление слоя на карту
+    map.addLayer(lineLayer);
+    // Центрирование карты на линии
+    // map.getView().fit(lineFeature.getGeometry().getExtent(), {
+    //   size: map.getSize(),
+    //   duration: 500,
+    // });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Функция для создания линии из координат
+function createLineFromCoordinates(coordinates, stopName) {
+  var lineCoordinates = coordinates[stopName].map(function(coord) {
+      return ol.proj.fromLonLat(coord);
+  });
+  var lineGeometry = new ol.geom.LineString(lineCoordinates);
+  var lineFeature = new ol.Feature({
+      geometry: lineGeometry
+  });
+  return lineFeature;
+}
+

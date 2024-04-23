@@ -63,11 +63,14 @@
           <div class="cont-1_text">Жесткий контакт Сереги</div>
         </div>
       </div>
-      <div id="map" class="map" tabindex="0"></div>
-      <div id="popup" class="ol-popup">
-        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-        <div id="popup-content">ршшшшшш</div>
+      <div class="container">
+        <div id="map" class="map" tabindex="0"></div>
+        <div id="popup" class="ol-popup">
+          <a href="#" class="ol-popup-closer popup-closer-js"></a>
+          <div class="popup-content-js">ршшшшшш</div>
+        </div>
       </div>
+    
       <div class="controls-view_wrapper">
         <div class="controls-view_slot"></div>
         <div class="controls-view">
@@ -75,9 +78,8 @@
             <div class="controls-view_zoom">
               <button
                 type="button"
-                class="button button-top"
-                aria-haspopup="false"
-                aria-label="Приблизить"
+                class="button btn_zoom-in btn_zoom-in-js"
+                title="Приблизить"
               >
                 <svg
                   width="24"
@@ -95,9 +97,8 @@
               </button>
               <button
                 type="button"
-                class="button button-bottom"
-                aria-haspopup="false"
-                aria-label="Отдалить"
+                class="button btn_zoom-out btn_zoom-out-js"
+                title="Отдалить"
               >
                 <svg
                   width="24"
@@ -119,9 +120,8 @@
             <div class="controls-view_geo">
               <button
                 type="button"
-                class="button button-geo"
-                aria-haspopup="false"
-                aria-label="Моё местоположение"
+                class="button button-geo btn-geo-js"
+                title="Моё местоположение"
               >
                 <span class="button__icon" aria-hidden="true"
                   ><div class="map-geolocation-control__icon">
@@ -180,6 +180,6 @@
     <script src="plugins/ol/ol.js"></script>
     <script type="module" src="script/index.js"></script>
     <!-- <script src="script/map.js"></script> -->
-    <script src="script/map.js"></script>
+    <script type="module" src="script/map.js"></script>
   </body>
 </html>
