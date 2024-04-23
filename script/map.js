@@ -1,12 +1,11 @@
 import onClick from "./onClick.js";
 import zooomIn from "./mapComponents/zoomIn.js";
 import zoomOut from "./mapComponents/zoomOut.js";
-import DataFetcher from "./fetch.js";
 
 const ergocenterCoordinate = [35.904323, 56.883135];
 const ergocenter = ol.proj.fromLonLat(ergocenterCoordinate);
 
-const container = document.getElementById("popup");
+const container = document.querySelector("#popup");
 const content = document.querySelector(".popup-content-js");
 const closer = document.querySelector(".popup-closer-js");
 
