@@ -1,0 +1,12 @@
+.feedback-form{
+    width: 48rem;
+    &_stars{
+        margin-bottom: 2rem;
+    }
+    &_tit{
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 100%;
+        margin-bottom: 7px;
+    }
+}
