@@ -437,6 +437,109 @@
     line-height: 100%;
     margin-bottom: 7px; }
 
+.custom-input {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 14px; }
+  .custom-input .div_input {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 10px 5px;
+    letter-spacing: 0.1em;
+    color: black;
+    border-bottom: 2px solid #b2b2b2;
+    outline: none; }
+    .custom-input .div_input.is-empty + .div_label {
+      transform: scale(1) translateY(15px); }
+    .custom-input .div_input:focus {
+      border-color: black; }
+      .custom-input .div_input:focus + .div_label {
+        transform: scale(0.75) translateY(-10px); }
+  .custom-input .div_label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    letter-spacing: 0.1em;
+    transform-origin: 0.333em 0;
+    transition: transform 0.3s;
+    pointer-events: none;
+    transform: scale(0.75) translateY(-10px); }
+  .custom-input .div_txt {
+    padding-top: 8px; }
+
+.custom-checkbox {
+  position: relative;
+  cursor: pointer;
+  line-height: 24px; }
+  .custom-checkbox input {
+    position: absolute;
+    left: -9999px; }
+  .custom-checkbox.checked .custom-checkbox-button {
+    background-color: blue; }
+  .custom-checkbox.checked .custom-checkbox-button:before {
+    left: 25px; }
+  .custom-checkbox_wrapper {
+    margin-bottom: 3rem; }
+
+.custom-checkbox-button {
+  display: inline-block;
+  margin: 0 15px;
+  width: 50px;
+  border-radius: 12px;
+  background-color: #eeeeee;
+  height: 24px;
+  position: relative;
+  bottom: -4px;
+  cursor: pointer;
+  transition: all 0.5s; }
+  .custom-checkbox-button::before {
+    background: #fff;
+    content: "";
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
+    box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
+    -webkit-transition: 0.2s;
+    transition: 0.2s; }
+
+.custom-photo {
+  padding-top: 21px;
+  margin-bottom: 10px; }
+  .custom-photo_btn {
+    display: inline-block;
+    padding: 14px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    background-color: #f1f0ed;
+    text-align: center; }
+    .custom-photo_btn:hover {
+      background-color: #0056b3; }
+    .custom-photo_btn:active {
+      background-color: #004085; }
+    .custom-photo_btn:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); }
+
+.preview-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); }
+  .preview-container > div {
+    height: 7rem; }
+  .preview-container .photo-preview {
+    height: 100%;
+    width: 100%; }
+
 .main {
   margin-bottom: 3rem; }
   .main-cont-1 {
@@ -598,115 +701,16 @@
   padding-bottom: 4rem;
   margin-bottom: 6rem; }
 
-.custom-input {
-  position: relative;
-  flex: 1;
-  width: 100%;
-  margin-bottom: 14px; }
-  .custom-input .div_input {
-    background: none;
-    border: none;
-    width: 100%;
-    padding: 10px 5px;
-    letter-spacing: 0.1em;
-    color: black;
-    border-bottom: 2px solid #b2b2b2;
-    outline: none; }
-    .custom-input .div_input.is-empty + .div_label {
-      transform: scale(1) translateY(15px); }
-    .custom-input .div_input:focus {
-      border-color: black; }
-      .custom-input .div_input:focus + .div_label {
-        transform: scale(0.75) translateY(-10px); }
-  .custom-input .div_label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    letter-spacing: 0.1em;
-    transform-origin: 0.333em 0;
-    transition: transform 0.3s;
-    pointer-events: none;
-    transform: scale(0.75) translateY(-10px); }
-  .custom-input .div_txt {
-    padding-top: 8px; }
-
-.custom-photo {
-  padding-top: 21px; }
-
-.add-photo-button {
+.custom-btn_type-1 {
   display: inline-block;
-  padding: 14px 20px;
+  padding: 18px 20px;
   font-size: 16px;
   border: none;
   border-radius: 13px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   width: 100%;
-  background-color: #f1f0ed;
-  text-align: center; }
-
-.add-photo-button:hover {
-  background-color: #0056b3; }
-
-.add-photo-button:active {
-  background-color: #004085; }
-
-.add-photo-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); }
-
-.photo-preview {
-  max-width: 200px;
-  max-height: 200px;
-  margin-top: 20px; }
-
-.custom-checkbox {
-  position: relative;
-  cursor: pointer;
-  line-height: 24px; }
-  .custom-checkbox input {
-    position: absolute;
-    left: -9999px; }
-  .custom-checkbox.checked .custom-checkbox-button:before {
-    left: 25px; }
-  .custom-checkbox.checked .custom-checkbox-button:after {
-    left: 32px;
-    background: #1967c3; }
-
-.custom-checkbox-button {
-  display: inline-block;
-  margin: 0 15px;
-  width: 50px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  height: 24px;
-  position: relative;
-  bottom: -4px;
-  cursor: pointer; }
-  .custom-checkbox-button::before {
-    background: #fff;
-    content: "";
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    -webkit-box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
-    box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
-    -webkit-transition: 0.2s;
-    transition: 0.2s; }
-  .custom-checkbox-button::after {
-    content: "";
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    background: #707070;
-    border-radius: 50%;
-    top: 6px;
-    left: 6px;
-    -webkit-box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
-    box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
-    -webkit-transition: 0.2s;
-    transition: 0.2s; }
+  text-align: center;
+  background-color: #fce000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+  .custom-btn_type-1:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }

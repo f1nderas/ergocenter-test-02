@@ -67,8 +67,8 @@
         <div class="container">
           <h2 class="reviews-tit">Отзывы о пассажирских перевозках</h2>
           <div class="reviews-rating">
-            <div class="reviews-rating_num">1</div>
-            <div class="reviews-rating_stars stars stars_set">
+            <div class="reviews-rating_num">4.9</div>
+            <div class="reviews-rating_stars stars">
               <div class="stars_active"></div>
               <div class="stars_items">
                 <input
@@ -243,6 +243,7 @@
                 </div>
               </div>
               <div class="custom-photo">
+                <div class="preview-container preview-container-js"></div>
                 <input
                   type="file"
                   id="photo"
@@ -251,17 +252,17 @@
                   multiple
                   style="display: none"
                 />
-                <label for="photo" class="add-photo-button">
+                <label for="photo" class="custom-photo_btn">
                   Добавить фото
                 </label>
-                <div class="preview-container preview-container-js"></div>
               </div>
-              <label class="custom-checkbox">
+              <div class="custom-checkbox_wrapper">
+                 <label class="custom-checkbox">
                 <input type="checkbox" checked="checked">
                 Анонимный отзыв
               </label>
-    
-              <input type="submit" value="Отправить" />
+              </div>
+              <button class="custom-btn_type-1" type="submit">Отправить</button>
             </form>
           </div>
         </div>

@@ -1,0 +1,38 @@
+.custom-photo {
+  padding-top: 21px;
+  margin-bottom: 10px;
+  &_btn {
+    display: inline-block;
+    padding: 14px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    background-color: #f1f0ed;
+    text-align: center;
+    &:hover {
+      background-color: #0056b3;
+    }
+    &:active {
+      background-color: #004085;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+  }
+}
+
+.preview-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  > div {
+    height: 7rem;
+  }
+  .photo-preview {
+    height: 100%;
+    width: 100%;
+  }
+}

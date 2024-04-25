@@ -2,7 +2,7 @@ import DataFetcher from "./fetch.js";
 import DataPrinter from "./print.js";
 import floatMenuScript from "./floatMenu.js";
 import hideMenuScript from "./hideMenu.js";
-import initStars from "./initStars.js";
+import initStars from "./components/initStars.js";
 
 $(document).ready(function () {
   $(".cont-1_car-list-slider").slick({
@@ -104,10 +104,10 @@ window.onload = function () {
     }
   });
 
-  var checkboxes = document.querySelectorAll('.custom-checkbox');
+  const checkboxes = document.querySelectorAll('.custom-checkbox');
 
   checkboxes.forEach(function(checkbox) {
-    var span = document.createElement('span');
+    const span = document.createElement('span');
     span.className = 'custom-checkbox-button';
     checkbox.insertBefore(span, checkbox.firstChild);
 
@@ -116,7 +116,7 @@ window.onload = function () {
     }
 
     checkbox.addEventListener('change', function() {
-      var input = this.querySelector('input');
+      const input = this.querySelector('input');
       this.classList.toggle('checked', input.checked);
     });
   });

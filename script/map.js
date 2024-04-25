@@ -1,4 +1,4 @@
-import onClick from "./onClick.js";
+import onClick from "./components/onClick.js";
 import zooomIn from "./mapComponents/zoomIn.js";
 import zoomOut from "./mapComponents/zoomOut.js";
 
