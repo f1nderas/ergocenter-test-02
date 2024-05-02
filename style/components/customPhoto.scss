@@ -1,5 +1,4 @@
 .custom-photo {
-  padding-top: 21px;
   margin-bottom: 10px;
   &_btn {
     display: inline-block;
@@ -22,6 +21,9 @@
       outline: none;
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
     }
+  }
+  .preview-container{
+    margin-bottom: 2rem;
   }
 }
 

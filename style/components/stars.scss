@@ -8,15 +8,6 @@
     display: block;
     content: "★★★★★";
   }
-  // &-item {
-  //   fill: #bfbfbf;
-  //   transition: fill 0.3s ease-in-out;
-  //   &:hover,
-  //   &:focus {
-  //     fill: #fcd32e;
-  //   }
-  // }
-
   &_active {
     position: absolute;
     width: 0%;
@@ -44,10 +35,9 @@
     left: 0;
   }
   &_item {
-    // flex: 0 0 20%;
     height: 100%;
     margin: 0;
-    width: 100%;
+    width: 20%;
     opacity: 0;
   }
 }

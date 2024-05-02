@@ -44,8 +44,10 @@
             <label class="burger" for="burger-checkbox"></label>
           </div>
           <div class="float-nav float-nav-js">
-            <a class="div_item div_item-active" href="index.html">О компании</a>
-            <a class="div_item" href="passenger-transportation.html"
+            <a class="div_item" href="index.html">О компании</a>
+            <a
+              class="div_item div_item-active"
+              href="passenger-transportation.html"
               >Пасажирские перевозки</a
             >
             <a class="div_item" href="contacts.html">Контакты</a>
@@ -68,7 +70,7 @@
           <h2 class="reviews-tit">Отзывы о пассажирских перевозках</h2>
           <div class="reviews-rating">
             <div class="reviews-rating_num">4.9</div>
-            <div class="reviews-rating_stars stars">
+            <div class="reviews-rating_stars stars" data-rating="4.9">
               <div class="stars_active"></div>
               <div class="stars_items">
                 <input
@@ -127,7 +129,7 @@
               <img src="img/cat.jpeg" alt="аватарка" class="div_img" />
             </div>
             <div class="feedback-name">Вера С</div>
-            <div class="feedback-stars stars stars_set">
+            <div class="feedback-stars stars" data-rating="4">
               <div class="stars_active"></div>
               <div class="stars_items">
                 <input
@@ -180,7 +182,7 @@
             </div>
           </div>
           <div class="reviwes-feedback_form feedback-form">
-            <div class="feedback-form_stars stars stars_set">
+            <div class="feedback-form_stars stars stars_set" data-rating="1">
               <div class="stars_active"></div>
               <div class="stars_items">
                 <input
@@ -218,10 +220,7 @@
             <h3 class="feedback-form_tit">
               Что думаете о пасскажирских перевозках в целом?
             </h3>
-            <form
-              name="feedbackForm"
-              method="post"
-            >
+            <form name="feedbackForm" method="post">
               <div class="custom-input">
                 <input type="text" id="advantages" class="div_input is-empty" />
                 <label for="advantages" class="div_label">Достоинства</label>
@@ -257,10 +256,12 @@
                 </label>
               </div>
               <div class="custom-checkbox_wrapper">
-                 <label class="custom-checkbox">
-                <input type="checkbox" checked="checked">
-                Анонимный отзыв
-              </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" />
+                  <span>
+                    Анонимный отзыв
+                  </span>
+                </label>
               </div>
               <button class="custom-btn_type-1" type="submit">Отправить</button>
             </form>
