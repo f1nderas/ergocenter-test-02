@@ -2,7 +2,7 @@ import DataFetcher from "./fetch.js";
 import DataPrinter from "./print.js";
 import floatMenuScript from "./floatMenu.js";
 import hideMenuScript from "./hideMenu.js";
-import initStars from "./components/initStars.js";
+import { functions } from "./functions.js";
 
 $(document).ready(function () {
   $(".cont-1_car-list-slider").slick({
@@ -69,8 +69,6 @@ window.onload = function () {
       .then(() => dataProcessor.printData())
       .catch((error) => console.error("Error:", error));
   }
-  const stars = document.querySelectorAll(".stars");
-  initStars(stars);
 
   const checkInputText = (event) => {
     const inputElement = event.target;
@@ -88,36 +86,37 @@ window.onload = function () {
     input.addEventListener("input", checkInputText);
   });
 
-
-  document.getElementById('photo').addEventListener('change', function(event) {
-    const previewContainer = document.querySelector('.preview-container-js');
-    // previewContainer.innerHTML = ''; // Очищаем предыдущие превью
+  document.getElementById("photo").addEventListener("change", function (event) {
+    const previewContainer = document.querySelector(".preview-container-js");
 
     for (let i = 0; i < event.target.files.length; i++) {
-      const img = document.createElement('img');
+      const img = document.createElement("img");
       img.src = URL.createObjectURL(event.target.files[i]);
-      img.classList.add('photo-preview');
+      img.classList.add("photo-preview");
 
-      const previewDiv = document.createElement('div');
+      const previewDiv = document.createElement("div");
       previewDiv.appendChild(img);
       previewContainer.appendChild(previewDiv);
     }
   });
 
-  const checkboxes = document.querySelectorAll('.custom-checkbox');
+  const checkboxes = document.querySelectorAll(".custom-checkbox");
 
-  checkboxes.forEach(function(checkbox) {
-    const span = document.createElement('span');
-    span.className = 'custom-checkbox-button';
+  checkboxes.forEach(function (checkbox) {
+    const span = document.createElement("span");
+    span.className = "custom-checkbox-button";
     checkbox.insertBefore(span, checkbox.firstChild);
 
-    if (checkbox.querySelector('input').checked) {
-      checkbox.classList.add('checked');
+    if (checkbox.querySelector("input").checked) {
+      checkbox.classList.add("checked");
     }
 
-    checkbox.addEventListener('change', function() {
-      const input = this.querySelector('input');
-      this.classList.toggle('checked', input.checked);
+    checkbox.addEventListener("change", function () {
+      const input = this.querySelector("input");
+      this.classList.toggle("checked", input.checked);
     });
   });
+
+  const starLists = document.querySelectorAll(".rating_stars");
+  functions.initStars(starLists);
 };

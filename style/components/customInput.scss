@@ -3,14 +3,14 @@
   flex: 1;
   width: 100%;
   margin-bottom: 14px;
+  color: gray;
   .div_input {
     background: none;
     border: none;
     width: 100%;
     padding: 10px 5px;
-    letter-spacing: 0.1em;
     color: black;
-    border-bottom: 2px solid #b2b2b2;
+    border-bottom: 1px solid gray;
     outline: none;
     &.is-empty {
       & + .div_label {
@@ -29,7 +29,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    letter-spacing: 0.1em;
     transform-origin: 0.333em 0;
     transition: transform 0.3s;
     pointer-events: none;

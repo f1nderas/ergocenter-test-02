@@ -360,43 +360,10 @@
     .ol-popup-closer::after {
       content: "✖"; }
 
-.stars {
-  font-size: 17px;
-  line-height: 0.75;
-  position: relative;
-  width: fit-content;
-  height: fit-content; }
-  .stars::before {
-    display: block;
-    content: "★★★★★"; }
-  .stars_active {
-    position: absolute;
-    width: 0%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out; }
-    .stars_active::before {
-      content: "★★★★★";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      color: #fcd32e; }
-  .stars_items {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0; }
-  .stars_item {
-    height: 100%;
-    margin: 0;
-    width: 20%;
-    opacity: 0; }
+.rating_stars {
+  display: flex; }
+  .rating_stars-type-1 {
+    gap: 15px; }
 
 .feedback {
   display: grid;
@@ -441,15 +408,15 @@
   position: relative;
   flex: 1;
   width: 100%;
-  margin-bottom: 14px; }
+  margin-bottom: 14px;
+  color: gray; }
   .custom-input .div_input {
     background: none;
     border: none;
     width: 100%;
     padding: 10px 5px;
-    letter-spacing: 0.1em;
     color: black;
-    border-bottom: 2px solid #b2b2b2;
+    border-bottom: 1px solid gray;
     outline: none; }
     .custom-input .div_input.is-empty + .div_label {
       transform: scale(1) translateY(15px); }
@@ -462,7 +429,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    letter-spacing: 0.1em;
     transform-origin: 0.333em 0;
     transition: transform 0.3s;
     pointer-events: none;
@@ -478,10 +444,14 @@
   .custom-checkbox input {
     position: absolute;
     left: -9999px; }
+  .custom-checkbox.checked:hover .custom-checkbox-button {
+    background-color: #E3CA00; }
   .custom-checkbox.checked .custom-checkbox-button {
-    background-color: blue; }
-  .custom-checkbox.checked .custom-checkbox-button:before {
-    left: 18px; }
+    background-color: #FCE000; }
+    .custom-checkbox.checked .custom-checkbox-button:before {
+      left: 18px; }
+  .custom-checkbox:hover .custom-checkbox-button {
+    background-color: #e0deda; }
   .custom-checkbox_wrapper {
     margin-bottom: 3rem; }
 
@@ -522,9 +492,9 @@
     background-color: #f1f0ed;
     text-align: center; }
     .custom-photo_btn:hover {
-      background-color: #0056b3; }
+      background-color: #e0deda; }
     .custom-photo_btn:active {
-      background-color: #004085; }
+      background-color: #e0deda; }
     .custom-photo_btn:focus {
       outline: none;
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); }

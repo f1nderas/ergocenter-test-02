@@ -8,16 +8,18 @@
     left: -9999px;
   }
   &.checked {
+    &:hover .custom-checkbox-button{
+        background-color: #E3CA00;
+    }
     .custom-checkbox-button{
-      background-color: blue;
+      background-color: #FCE000;
+      &:before {
+        left: 18px;
+      }
     }
-    .custom-checkbox-button:before {
-      left: 18px;
-    }
-    // .custom-checkbox-button:after {
-    //   left: 32px;
-    //   background: #1967c3;
-    // }
+  }
+  &:hover &-button {
+    background-color: #e0deda;
   }
   &_wrapper{
     margin-bottom: 3rem;

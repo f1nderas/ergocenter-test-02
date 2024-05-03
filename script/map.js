@@ -1,4 +1,4 @@
-import onClick from "./components/onClick.js";
+import { functions } from "./functions.js";
 import zooomIn from "./mapComponents/zoomIn.js";
 import zoomOut from "./mapComponents/zoomOut.js";
 
@@ -65,16 +65,16 @@ const controlsView = document.querySelector(".controls-view_wrapper");
 
 navWrapper.appendChild(controlsView);
 
-onClick("btn_zoom-in-js", () => zooomIn(map));
-onClick("btn_zoom-out-js", () => zoomOut(map));
+functions.onClick("btn_zoom-in-js", () => zooomIn(map));
+functions.onClick("btn_zoom-out-js", () => zoomOut(map));
 
-onClick("btn-geo-js", () => {
+functions.onClick("btn-geo-js", () => {
   view.animate({
     center: ergocenter,
     duration: 1000,
-    zoom: 16
+    zoom: 16,
   });
-  loadCoordinates()
+  loadCoordinates();
 });
 
 closer.onclick = function () {
@@ -92,7 +92,7 @@ map.on("click", function (evt) {
   });
 });
 
-const url = "script/mapComponents/coordinates.json"
+const url = "script/mapComponents/coordinates.json";
 
 async function loadCoordinates() {
   try {
@@ -101,7 +101,7 @@ async function loadCoordinates() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const coordinates = await response.json();
-    const lineFeature = createLineFromCoordinates(coordinates, 'bussStop2');
+    const lineFeature = createLineFromCoordinates(coordinates, "bussStop2");
     // Создание векторного слоя для линии
     const lineLayer = new ol.layer.Vector({
       source: new ol.source.Vector({
@@ -122,13 +122,12 @@ async function loadCoordinates() {
 
 // Функция для создания линии из координат
 function createLineFromCoordinates(coordinates, stopName) {
-  var lineCoordinates = coordinates[stopName].map(function(coord) {
-      return ol.proj.fromLonLat(coord);
+  var lineCoordinates = coordinates[stopName].map(function (coord) {
+    return ol.proj.fromLonLat(coord);
   });
   var lineGeometry = new ol.geom.LineString(lineCoordinates);
   var lineFeature = new ol.Feature({
-      geometry: lineGeometry
+    geometry: lineGeometry,
   });
   return lineFeature;
 }
-
