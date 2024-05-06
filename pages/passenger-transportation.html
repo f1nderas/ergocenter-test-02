@@ -4,62 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="plugins/jquery/jquery-3.7.0.min.js"></script>
-    <script src="plugins/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="plugins/slick/slick.css" />
-    <link rel="stylesheet" href="style/base.css" />
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="shortcut icon" href="/img/ico.ico" type="image/x-icon">
+    <script src="/plugins/jquery/jquery-3.7.0.min.js"></script>
+    <script src="/plugins/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="/plugins/slick/slick.css" />
+    <link rel="stylesheet" href="/style/base.css" />
+    <link rel="stylesheet" href="/style/style.css" />
   </head>
   <body class="hide_menu">
-    <header class="header">
-      <div class="header-line">
-        <img class="div_img" src="img/line.png" alt="" />
-      </div>
-      <div class="container">
-        <div class="header-top">
-          <img class="div_logo" src="img/logo.png" alt="" />
-          <a class="div_phone" href="tel:89106423810">8 (910) 642-38-10</a>
-        </div>
-        <div class="header-nav_list">
-          <a class="div_item" href="index.html">О компании</a>
-          <a
-            class="div_item div_item-active"
-            href="passenger-transportation.html"
-            >Пасажирские перевозки</a
-          >
-          <a class="div_item" href="contacts.html">Контакты</a>
-          <a class="div_item" href="order-bas.html">Заказ автобуса</a>
-        </div>
-      </div>
-    </header>
     <main class="main">
-      <div class="float-menu-wrapper float-menu-js">
-        <div class="float-menu container">
-          <div class="burger-wrapper burger-wrapper-js">
-            <input
-              id="burger-checkbox"
-              class="burger-checkbox burger-checkbox-js"
-              type="checkbox"
-            />
-            <label class="burger" for="burger-checkbox"></label>
-          </div>
-          <div class="float-nav float-nav-js">
-            <a class="div_item" href="index.html">О компании</a>
-            <a
-              class="div_item div_item-active"
-              href="passenger-transportation.html"
-              >Пасажирские перевозки</a
-            >
-            <a class="div_item" href="contacts.html">Контакты</a>
-            <a class="div_item" href="order-bas.html">Заказ автобуса</a>
-          </div>
-          <a class="float-logo" href="index.html">
-            <img class="div_logo" src="img/logo.png" alt="" />
-          </a>
-          <a class="float-phone" href="tel:89106423810">8 (910) 642-38-10</a>
-        </div>
-      </div>
-
       <div class="main-cont-1">
         <div class="container">
           <div class="cont-1_text">Пассажирские перевозки в Твери</div>
@@ -70,7 +23,7 @@
           <h2 class="reviews-tit">Отзывы о пассажирских перевозках</h2>
           <div class="reviews-rating">
             <div class="reviews-rating_num">4.9</div>
-            <div class="reviews-rating_stars" >
+            <div class="reviews-rating_stars">
               <div class="rating_stars" data-rating="4.9"></div>
             </div>
             <div class="reviews-rating_info-list">
@@ -84,9 +37,9 @@
               </div>
             </div>
           </div>
-          <div class="reviews-sort">
-            <div class="reviews-sort_name">Сортировать:</div>
-            <div class="reviews-sort_value-list">
+          <div class="reviews-sort sort sort-js">
+            <div class="sort-name">Сортировать:</div>
+            <div class="sort-btn_list">
               <button class="div_btn active">по дате</button>
               <button class="div_btn active">по оценке</button>
               <button class="div_btn">по полезности</button>
@@ -94,11 +47,14 @@
           </div>
           <div class="reviews-feedback feedback">
             <div class="feedback-img">
-              <img src="img/cat.jpeg" alt="аватарка" class="div_img" />
+              <img src="/img/cat.jpeg" alt="аватарка" class="div_img" />
             </div>
             <div class="feedback-name">Вера С</div>
-            <div class="feedback-stars ">
-              <div class="rating_stars rating_stars-type-1" data-rating="4"></div>
+            <div class="feedback-stars">
+              <div
+                class="rating_stars rating_stars-type-1"
+                data-rating="4"
+              ></div>
             </div>
             <div class="feedback-info_wrapper">
               <div class="feedback-info">
@@ -119,7 +75,10 @@
           </div>
           <div class="reviwes-feedback_form feedback-form">
             <div class="feedback-form_stars">
-              <div class="rating_stars rating_stars-type-1 _edit" data-rating="4"></div>
+              <div
+                class="rating_stars rating_stars-type-1 _edit"
+                data-rating="4"
+              ></div>
             </div>
             <h3 class="feedback-form_tit">
               Что думаете о пасскажирских перевозках в целом?
@@ -167,12 +126,11 @@
               </div>
               <button class="custom-btn_type-1" type="submit">Отправить</button>
             </form>
-            <div style="display: none;">_empty _half _full</div>
+            <div style="display: none">_empty _half _full</div>
           </div>
         </div>
       </div>
     </main>
-
     <footer class="footer">
       <div class="container">
         <div class="footer-inner">
@@ -203,6 +161,7 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="./script/index.js"></script>
+    <script type="module" src="/script/index.js"></script>
+    <script type="module" src="/script/pages/passengerTransportation.js"></script>
   </body>
 </html>

@@ -2,6 +2,9 @@
     width: 48rem;
     &_stars{
         margin-bottom: 2rem;
+        .rating_star{
+            cursor: pointer;
+        }
     }
     &_tit{
         font-weight: 700;
@@ -9,4 +12,5 @@
         line-height: 100%;
         margin-bottom: 7px;
     }
+
 }

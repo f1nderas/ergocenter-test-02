@@ -1,6 +1,4 @@
-import { functions } from "./functions.js";
-import zooomIn from "./mapComponents/zoomIn.js";
-import zoomOut from "./mapComponents/zoomOut.js";
+import { functions } from "../functions.js";
 
 const ergocenterCoordinate = [35.904323, 56.883135];
 const ergocenter = ol.proj.fromLonLat(ergocenterCoordinate);
@@ -43,7 +41,7 @@ const iconFeature = new ol.Feature({
 
 const iconStyle = new ol.style.Style({
   image: new ol.style.Icon({
-    src: "img/marker.svg",
+    src: "/img/marker.svg",
     anchor: [0.5, 1],
   }),
 });
@@ -65,8 +63,8 @@ const controlsView = document.querySelector(".controls-view_wrapper");
 
 navWrapper.appendChild(controlsView);
 
-functions.onClick("btn_zoom-in-js", () => zooomIn(map));
-functions.onClick("btn_zoom-out-js", () => zoomOut(map));
+functions.onClick("btn_zoom-in-js", () => functions.zoomIn(map));
+functions.onClick("btn_zoom-out-js", () => functions.zoomOut(map));
 
 functions.onClick("btn-geo-js", () => {
   view.animate({
@@ -92,7 +90,7 @@ map.on("click", function (evt) {
   });
 });
 
-const url = "script/mapComponents/coordinates.json";
+const url = "/json/mapCoordinateList.json";
 
 async function loadCoordinates() {
   try {

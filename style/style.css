@@ -398,6 +398,8 @@
   width: 48rem; }
   .feedback-form_stars {
     margin-bottom: 2rem; }
+    .feedback-form_stars .rating_star {
+      cursor: pointer; }
   .feedback-form_tit {
     font-weight: 700;
     font-size: 21px;
@@ -511,6 +513,7 @@
     width: 100%; }
 
 .main {
+  padding-top: 130px;
   margin-bottom: 3rem; }
   .main-cont-1 {
     background-image: url("/img/sky.jpg");
@@ -653,21 +656,7 @@
         .reviews-rating_info-item:last-child::after {
           position: initial; }
   .reviews-sort {
-    display: flex;
-    gap: 2rem;
     margin-bottom: 2rem; }
-    .reviews-sort_value-list {
-      display: flex;
-      gap: 2rem; }
-      .reviews-sort_value-list .div_btn {
-        padding: 0;
-        border: none;
-        font: inherit;
-        color: inherit;
-        background-color: transparent;
-        cursor: pointer; }
-        .reviews-sort_value-list .div_btn.active {
-          color: #0044bb; }
   .reviews-feedback {
     border-bottom: 2px solid #b2b2b2;
     padding-bottom: 4rem;
@@ -686,3 +675,19 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
   .custom-btn_type-1:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+
+.sort {
+  display: flex;
+  gap: 2rem; }
+  .sort-btn_list {
+    display: flex;
+    gap: 2rem; }
+    .sort-btn_list .div_btn {
+      padding: 0;
+      border: none;
+      font: inherit;
+      color: inherit;
+      background-color: transparent;
+      cursor: pointer; }
+      .sort-btn_list .div_btn.active {
+        color: #0044bb; }

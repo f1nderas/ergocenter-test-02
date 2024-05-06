@@ -11,6 +11,7 @@
 @import "components/customPhoto.scss";
 
 .main {
+  padding-top: 130px;
   margin-bottom: 3rem;
   &-cont-1 {
     background-image: url("/img/sky.jpg");
@@ -227,24 +228,7 @@
     }
   }
   &-sort {
-    display: flex;
-    gap: 2rem;
     margin-bottom: 2rem;
-    &_value-list {
-      display: flex;
-      gap: 2rem;
-      .div_btn {
-        padding: 0;
-        border: none;
-        font: inherit;
-        color: inherit;
-        background-color: transparent;
-        cursor: pointer;
-        &.active {
-          color: #0044bb;
-        }
-      }
-    }
   }
   &-feedback {
     border-bottom: 2px solid #b2b2b2;
@@ -266,5 +250,25 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   &:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.sort {
+  display: flex;
+  gap: 2rem;
+  &-btn_list {
+    display: flex;
+    gap: 2rem;
+    .div_btn {
+      padding: 0;
+      border: none;
+      font: inherit;
+      color: inherit;
+      background-color: transparent;
+      cursor: pointer;
+      &.active {
+        color: #0044bb;
+      }
+    }
   }
 }
