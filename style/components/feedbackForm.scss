@@ -1,16 +1,23 @@
-.feedback-form{
-    width: 48rem;
-    &_stars{
-        margin-bottom: 2rem;
-        .rating_star{
-            cursor: pointer;
-        }
+.feedback-form {
+  width: 48rem;
+  &.blocked {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  &_stars {
+    margin-bottom: 2rem;
+    pointer-events: auto;
+    opacity: 1;
+    .rating_star {
+      cursor: pointer;
     }
-    &_tit{
-        font-weight: 700;
-        font-size: 21px;
-        line-height: 100%;
-        margin-bottom: 7px;
-    }
+  }
+  &_tit {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 100%;
+    margin-bottom: 7px;
+  }
 
+  
 }

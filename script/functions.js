@@ -42,6 +42,25 @@ export const functions = {
         }
       });
     }
+    function toggleInputAndButtonBlocking(currentRating) {
+      const block = document.querySelector('.feedback-form-js')
+      const inputs = block.querySelectorAll('input');
+      const buttons = block.querySelectorAll('button'); 
+      const classNameToToggle = "blocked";
+      
+      if (currentRating === 0) {
+        block.classList.add(classNameToToggle);
+      } else {
+        block.classList.remove(classNameToToggle);
+      }
+      inputs.forEach(input => {
+        input.disabled = currentRating === 0;
+      });
+      buttons.forEach(button => {
+        button.disabled = currentRating === 0;
+      });
+    }
+
     ratingStarsElements.forEach(createStars);
     ratingStarsElements.forEach((ratingStarsElement) => {
       const stars = ratingStarsElement.querySelectorAll(".rating_star svg");
@@ -58,6 +77,7 @@ export const functions = {
             }
             ratingStarsElement.setAttribute("data-rating", currentRating);
             updateStarDisplay(ratingStarsElement, currentRating);
+            toggleInputAndButtonBlocking(currentRating);
           }
         });
       });

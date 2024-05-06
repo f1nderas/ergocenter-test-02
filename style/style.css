@@ -396,8 +396,13 @@
 
 .feedback-form {
   width: 48rem; }
+  .feedback-form.blocked {
+    pointer-events: none;
+    opacity: 0.5; }
   .feedback-form_stars {
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    pointer-events: auto;
+    opacity: 1; }
     .feedback-form_stars .rating_star {
       cursor: pointer; }
   .feedback-form_tit {
