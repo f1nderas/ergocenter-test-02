@@ -1,4 +1,4 @@
-class NewsProcessor {
+export class NewsProcessor {
     constructor(url) {
       this.url = url;
       this.data = null;
@@ -55,10 +55,3 @@ class NewsProcessor {
     }
   }
   
-  const domNews = document.querySelector(".news-js");
-  const url = "../../json/news.json";
-  const newsProcessor = new NewsProcessor(url);
-  
-  newsProcessor.fetchData().then(() => {
-    newsProcessor.printData(domNews);
-  });

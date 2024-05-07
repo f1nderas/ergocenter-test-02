@@ -1,4 +1,4 @@
-class Stars {
+export class Stars {
   constructor(wrapper) {
     this.wrapper = wrapper;
   }
@@ -79,6 +79,3 @@ class Stars {
   }
 }
 
-const variable = document.querySelectorAll(".rating-stars_js");
-const star = new Stars(variable);
-star.create();
