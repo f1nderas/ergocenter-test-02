@@ -1,7 +1,6 @@
 import { functions } from "../functions.js";
 
 functions.photoEventListener();
-functions.checkInputTextValue();
+functions.checkInputText();
 functions.customCheckbox();
-functions.initStars();
-functions.sortButton();
+functions.toggleClassBtn();

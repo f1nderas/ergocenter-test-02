@@ -360,9 +360,9 @@
     .ol-popup-closer::after {
       content: "✖"; }
 
-.rating_stars {
+.rating-stars {
   display: flex; }
-  .rating_stars-type-1 {
+  .rating-stars_type-1 {
     gap: 15px; }
 
 .feedback {

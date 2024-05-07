@@ -1,82 +1,4 @@
 export const functions = {
-  updateStarDisplay(ratingStarsElement, rating) {
-    const stars = ratingStarsElement.querySelectorAll(".rating_star svg use");
-    stars.forEach((use, index) => {
-      if (index < rating) {
-        use.setAttribute("href", "/img/sprite.svg#filled-star");
-      } else if (index === Math.floor(rating) && rating % 1 !== 0) {
-        use.setAttribute("href", "/img/sprite.svg#half-filled-star");
-      } else {
-        use.setAttribute("href", "/img/sprite.svg#gray-star");
-      }
-    });
-  },
-  createStars(ratingStarsElement) {
-    const rating = parseFloat(ratingStarsElement.getAttribute("data-rating"));
-    const totalStars = 5;
-    ratingStarsElement.innerHTML = "";
-
-    for (let i = 1; i <= totalStars; i++) {
-      const starItem = document.createElement("div");
-      starItem.className = "rating_star";
-
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("width", "16");
-      svg.setAttribute("height", "16");
-
-      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-      use.setAttribute("href", "/img/sprite.svg#gray-star");
-
-      svg.appendChild(use);
-      starItem.appendChild(svg);
-      ratingStarsElement.appendChild(starItem);
-    }
-    functions.updateStarDisplay(ratingStarsElement, rating);
-  },
-  toggleInputAndButtonBlocking(currentRating) {
-    const block = document.querySelector(".feedback-form-js");
-    const inputs = block.querySelectorAll("input");
-    const buttons = block.querySelectorAll("button");
-    const classNameToToggle = "blocked";
-
-    if (currentRating === 0) {
-      block.classList.add(classNameToToggle);
-    } else {
-      block.classList.remove(classNameToToggle);
-    }
-    inputs.forEach((input) => {
-      input.disabled = currentRating === 0;
-    });
-    buttons.forEach((button) => {
-      button.disabled = currentRating === 0;
-    });
-  },
-  initStars() {
-    const ratingStarsElements = document.querySelectorAll(".rating_stars");
-
-    ratingStarsElements.forEach(this.createStars);
-
-    ratingStarsElements.forEach((ratingStarsElement) => {
-      const stars = ratingStarsElement.querySelectorAll(".rating_star svg");
-      stars.forEach((starSvg, index) => {
-        starSvg.addEventListener("click", () => {
-          if (ratingStarsElement.classList.contains("_edit")) {
-            let currentRating = parseFloat(
-              ratingStarsElement.getAttribute("data-rating")
-            );
-            if (index + 1 === currentRating) {
-              currentRating -= 1;
-            } else {
-              currentRating = index + 1;
-            }
-            ratingStarsElement.setAttribute("data-rating", currentRating);
-            this.updateStarDisplay(ratingStarsElement, currentRating);
-            this.toggleInputAndButtonBlocking(currentRating);
-          }
-        });
-      });
-    });
-  },
   onClick: function (className, callback) {
     document.querySelector(`.${className}`).addEventListener("click", callback);
   },
@@ -192,24 +114,23 @@ export const functions = {
       });
     });
   },
-  checkInputTextValue: function () {
-    const checkInputText = (event) => {
-      const inputElement = event.target;
-      const inputText = inputElement.value.trim();
-
-      if (inputText === "") {
-        inputElement.classList.add("is-empty");
-      } else {
-        inputElement.classList.remove("is-empty");
-      }
-    };
-
+  checkInputText: function () {
     const inputElements = document.querySelectorAll(".custom-input .div_input");
+    
     inputElements.forEach(function (input) {
-      input.addEventListener("input", checkInputText);
+      input.addEventListener("input", (event)=>{
+        const inputElement = event.target;
+        const inputText = inputElement.value.trim();
+  
+        if (inputText === "") {
+          inputElement.classList.add("is-empty");
+        } else {
+          inputElement.classList.remove("is-empty");
+        }
+      });
     });
   },
-  sortButton: function () {
+  toggleClassBtn: function () {
     const sort = document.querySelector(".sort-js");
     const btns = sort.querySelectorAll(".div_btn");
     btns.forEach((btn) => {
