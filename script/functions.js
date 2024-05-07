@@ -1,67 +1,61 @@
 export const functions = {
-  initStars: function () {
-    const ratingStarsElements = document.querySelectorAll(".rating_stars");
-    function createStars(ratingStarsElement) {
-      const rating = parseFloat(ratingStarsElement.getAttribute("data-rating"));
-      const totalStars = 5;
-      ratingStarsElement.innerHTML = "";
-
-      for (let i = 1; i <= totalStars; i++) {
-        const starItem = document.createElement("div");
-        starItem.className = "rating_star";
-
-        const svg = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "svg"
-        );
-        svg.setAttribute("width", "16");
-        svg.setAttribute("height", "16");
-
-        const use = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "use"
-        );
-        use.setAttribute("href", "/img/sprite.svg#gray-star");
-
-        svg.appendChild(use);
-        starItem.appendChild(svg);
-        ratingStarsElement.appendChild(starItem);
-      }
-
-      updateStarDisplay(ratingStarsElement, rating);
-    }
-    function updateStarDisplay(ratingStarsElement, rating) {
-      const stars = ratingStarsElement.querySelectorAll(".rating_star svg use");
-      stars.forEach((use, index) => {
-        if (index < rating) {
-          use.setAttribute("href", "/img/sprite.svg#filled-star");
-        } else if (index === Math.floor(rating) && rating % 1 !== 0) {
-          use.setAttribute("href", "/img/sprite.svg#half-filled-star");
-        } else {
-          use.setAttribute("href", "/img/sprite.svg#gray-star");
-        }
-      });
-    }
-    function toggleInputAndButtonBlocking(currentRating) {
-      const block = document.querySelector('.feedback-form-js')
-      const inputs = block.querySelectorAll('input');
-      const buttons = block.querySelectorAll('button'); 
-      const classNameToToggle = "blocked";
-      
-      if (currentRating === 0) {
-        block.classList.add(classNameToToggle);
+  updateStarDisplay(ratingStarsElement, rating) {
+    const stars = ratingStarsElement.querySelectorAll(".rating_star svg use");
+    stars.forEach((use, index) => {
+      if (index < rating) {
+        use.setAttribute("href", "/img/sprite.svg#filled-star");
+      } else if (index === Math.floor(rating) && rating % 1 !== 0) {
+        use.setAttribute("href", "/img/sprite.svg#half-filled-star");
       } else {
-        block.classList.remove(classNameToToggle);
+        use.setAttribute("href", "/img/sprite.svg#gray-star");
       }
-      inputs.forEach(input => {
-        input.disabled = currentRating === 0;
-      });
-      buttons.forEach(button => {
-        button.disabled = currentRating === 0;
-      });
-    }
+    });
+  },
+  createStars(ratingStarsElement) {
+    const rating = parseFloat(ratingStarsElement.getAttribute("data-rating"));
+    const totalStars = 5;
+    ratingStarsElement.innerHTML = "";
 
-    ratingStarsElements.forEach(createStars);
+    for (let i = 1; i <= totalStars; i++) {
+      const starItem = document.createElement("div");
+      starItem.className = "rating_star";
+
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("width", "16");
+      svg.setAttribute("height", "16");
+
+      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      use.setAttribute("href", "/img/sprite.svg#gray-star");
+
+      svg.appendChild(use);
+      starItem.appendChild(svg);
+      ratingStarsElement.appendChild(starItem);
+    }
+    functions.updateStarDisplay(ratingStarsElement, rating);
+  },
+  toggleInputAndButtonBlocking(currentRating) {
+    const block = document.querySelector(".feedback-form-js");
+    const inputs = block.querySelectorAll("input");
+    const buttons = block.querySelectorAll("button");
+    const classNameToToggle = "blocked";
+
+    if (currentRating === 0) {
+      block.classList.add(classNameToToggle);
+    } else {
+      block.classList.remove(classNameToToggle);
+    }
+    inputs.forEach((input) => {
+      input.disabled = currentRating === 0;
+    });
+    buttons.forEach((button) => {
+      button.disabled = currentRating === 0;
+    });
+  },
+  initStars() {
+    const ratingStarsElements = document.querySelectorAll(".rating_stars");
+
+    ratingStarsElements.forEach(this.createStars);
+
     ratingStarsElements.forEach((ratingStarsElement) => {
       const stars = ratingStarsElement.querySelectorAll(".rating_star svg");
       stars.forEach((starSvg, index) => {
@@ -76,8 +70,8 @@ export const functions = {
               currentRating = index + 1;
             }
             ratingStarsElement.setAttribute("data-rating", currentRating);
-            updateStarDisplay(ratingStarsElement, currentRating);
-            toggleInputAndButtonBlocking(currentRating);
+            this.updateStarDisplay(ratingStarsElement, currentRating);
+            this.toggleInputAndButtonBlocking(currentRating);
           }
         });
       });
@@ -225,26 +219,26 @@ export const functions = {
     });
   },
   generateHeader: function () {
-    const linkk = "pages";
+
     const links = [
-      { text: "О компании", href: "main.html" },
+      { text: "О компании", href: "index.html" },
       {
         text: "Пасажирские перевозки",
-        href: "passenger-transportation.html",
+        href: "pages/passenger-transportation.html",
       },
-      { text: "Контакты", href: "contacts.html" },
-      { text: "Заказ автобуса", href: "order-bas.html" },
+      { text: "Контакты", href: "pages/contacts.html" },
+      { text: "Заказ автобуса", href: "pages/order-bas.html" },
     ];
     const currentUrl = window.location.pathname;
 
     let headerHtml = `
       <header class="header">
         <div class="header-line">
-          <img class="div_img" src="/img/line.png" alt="" />
+          <img class="div_img" src="../img/line.png" alt="" />
         </div>
         <div class="container">
           <div class="header-top">
-            <img class="div_logo" src="/img/logo.png" alt="" />
+            <img class="div_logo" src="../img/logo.png" alt="" />
             <a class="div_phone" href="tel:89106423810">8 (910) 642-38-10</a>
           </div>
           <div class="header-nav_list">
@@ -254,7 +248,7 @@ export const functions = {
       const activeClass = currentUrl.endsWith(link.href)
         ? "div_item-active"
         : "";
-      headerHtml += `<a class="div_item ${activeClass}" href="/${linkk}/${link.href}">${link.text}</a>`;
+      headerHtml += `<a class="div_item ${activeClass}" href="../${link.href}">${link.text}</a>`;
     });
 
     headerHtml += `
@@ -272,13 +266,13 @@ export const functions = {
   generateFloatMenu: function () {
     const linkk = "pages";
     const links = [
-      { text: "О компании", href: "main.html" },
+      { text: "О компании", href: "index.html" },
       {
         text: "Пасажирские перевозки",
-        href: "passenger-transportation.html",
+        href: "pages/passenger-transportation.html",
       },
-      { text: "Контакты", href: "contacts.html" },
-      { text: "Заказ автобуса", href: "order-bas.html" },
+      { text: "Контакты", href: "pages/contacts.html" },
+      { text: "Заказ автобуса", href: "pages/order-bas.html" },
     ];
     const currentUrl = window.location.pathname;
 
@@ -296,13 +290,13 @@ export const functions = {
       const activeClass = currentUrl.endsWith(link.href)
         ? "div_item-active"
         : "";
-      headerHtml += `<a class="div_item ${activeClass}" href="/${linkk}/${link.href}">${link.text}</a>`;
+      headerHtml += `<a class="div_item ${activeClass}" href="../${link.href}">${link.text}</a>`;
     });
 
     headerHtml += `
     </div>
-      <a class="float-logo" href="../main/main.html">
-        <img class="div_logo" src="/img/logo.png" alt="" />
+      <a class="float-logo" href="../index.html">
+        <img class="div_logo" src="../img/logo.png" alt="" />
       </a>
       <a class="float-phone" href="tel:89106423810">8 (910) 642-38-10</a>
     </div>
