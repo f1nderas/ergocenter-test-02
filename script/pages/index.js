@@ -1,5 +1,5 @@
 import { functions } from "/script/functions.js";
-import { NewsProcessor } from "../news/news";
+import { NewsProcessor } from "../news/news.js";
 
 functions.slickSlider();
 
