@@ -1,4 +1,4 @@
-import { functions } from "../functions.js";
+import  functions  from "../functions.js";
 
 const ergocenterCoordinate = [35.904323, 56.883135];
 const ergocenter = ol.proj.fromLonLat(ergocenterCoordinate);

@@ -1,4 +1,4 @@
-export const functions = {
+const functions = {
   onClick: function (className, callback) {
     document.querySelector(`.${className}`).addEventListener("click", callback);
   },
@@ -226,3 +226,5 @@ export const functions = {
     document.body.insertAdjacentHTML("beforeend", headerHtml);
   },
 };
+
+export default functions
