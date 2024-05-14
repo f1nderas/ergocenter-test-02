@@ -62,9 +62,9 @@ const functions = {
         autoplay: true,
         autoplaySpeed: 2000,
         nextArrow:
-          '<button type="button" class="slick-next"><img src="/img/arrow.png" alt="next"></button>',
+          '<button type="button" class="slick-next"><img src="img/arrow.png" alt="next"></button>',
         prevArrow:
-          '<button type="button" class="slick-prev"><img src="/img/arrow.png" alt="prev"></button>',
+          '<button type="button" class="slick-prev"><img src="img/arrow.png" alt="prev"></button>',
         responsive: [
           {
             breakpoint: 768,

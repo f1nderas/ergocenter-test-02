@@ -12,7 +12,7 @@ export class Stars {
         const starItem = `
           <div class="rating_star">
             <svg width="16" height="16">
-              <use href="../img/sprite.svg#gray-star"></use>
+              <use href="img/sprite.svg#gray-star"></use>
             </svg>
           </div>
             `;
@@ -29,11 +29,11 @@ export class Stars {
 
     starsUse.forEach((use, index) => {
       if (index < rating) {
-        use.setAttribute("href", "../img/sprite.svg#filled-star");
+        use.setAttribute("href", "img/sprite.svg#filled-star");
       } else if (index === Math.floor(rating) && rating % 1 !== 0) {
-        use.setAttribute("href", "../img/sprite.svg#half-filled-star");
+        use.setAttribute("href", "img/sprite.svg#half-filled-star");
       } else {
-        use.setAttribute("href", "../img/sprite.svg#gray-star");
+        use.setAttribute("href", "img/sprite.svg#gray-star");
       }
     });
   }
