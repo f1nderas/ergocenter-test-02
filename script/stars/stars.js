@@ -12,7 +12,7 @@ export class Stars {
         const starItem = `
           <div class="rating_star">
             <svg width="16" height="16">
-              <use href="../img/sprite.svg#gray-star"></use>
+              <use href="../../img/sprite.svg#gray-star"></use>
             </svg>
           </div>
             `;
