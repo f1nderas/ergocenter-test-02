@@ -1,3 +1,5 @@
+https://f1nderas.github.io/ergocenter-test-02/
+
 # Инструкции
 
 1. Версия Node.js: v14.15.0
