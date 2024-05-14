@@ -24,10 +24,11 @@ const view = new ol.View({
 const map = new ol.Map({
   layers: [
     new ol.layer.Tile({
-      source: new ol.source.OSM({
-        url: "//192.168.25.214:8012/wmts/osm900913/osm_grid/{z}/{x}/{y}.png",
-        preload: 4,
-      }),
+      // source: new ol.source.OSM({
+      //   url: "//192.168.25.214:8012/wmts/osm900913/osm_grid/{z}/{x}/{y}.png",
+      //   preload: 4,
+      // }),
+      source: new ol.source.OSM(),
     }),
   ],
   target: "map",

@@ -1,4 +1,4 @@
-export class Stars {
+export default class Stars {
   constructor(wrapper) {
     this.wrapper = wrapper;
   }
