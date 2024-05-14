@@ -1,4 +1,4 @@
-import { functions } from "./functions.js";
+import  functions  from "./functions.js";
 
 window.onload = function () {
   functions.generateHeader()
