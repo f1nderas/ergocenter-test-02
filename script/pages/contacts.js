@@ -41,7 +41,7 @@ const iconFeature = new ol.Feature({
 
 const iconStyle = new ol.style.Style({
   image: new ol.style.Icon({
-    src: "../../img/marker.svg",
+    src: "./img/marker.svg",
     anchor: [0.5, 1],
   }),
 });
