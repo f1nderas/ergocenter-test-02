@@ -145,21 +145,21 @@ export const functions = {
       { text: "О компании", href: "index.html" },
       {
         text: "Пасажирские перевозки",
-        href: "pages/passenger-transportation.html",
+        href: "passenger-transportation.html",
       },
-      { text: "Контакты", href: "pages/contacts.html" },
-      { text: "Заказ автобуса", href: "pages/order-bas.html" },
+      { text: "Контакты", href: "contacts.html" },
+      { text: "Заказ автобуса", href: "order-bas.html" },
     ];
     const currentUrl = window.location.pathname;
 
     let headerHtml = `
       <header class="header">
         <div class="header-line">
-          <img class="div_img" src="../img/line.png" alt="" />
+          <img class="div_img" src="img/line.png" alt="" />
         </div>
         <div class="container">
           <div class="header-top">
-            <img class="div_logo" src="../img/logo.png" alt="" />
+            <img class="div_logo" src="img/logo.png" alt="" />
             <a class="div_phone" href="tel:89106423810">8 (910) 642-38-10</a>
           </div>
           <div class="header-nav_list">
@@ -169,7 +169,7 @@ export const functions = {
       const activeClass = currentUrl.endsWith(link.href)
         ? "div_item-active"
         : "";
-      headerHtml += `<a class="div_item ${activeClass}" href="../${link.href}">${link.text}</a>`;
+      headerHtml += `<a class="div_item ${activeClass}" href="${link.href}">${link.text}</a>`;
     });
 
     headerHtml += `
@@ -185,15 +185,14 @@ export const functions = {
     document.querySelector(".main").style.paddingTop = heightHeader + "px";
   },
   generateFloatMenu: function () {
-    const linkk = "pages";
     const links = [
       { text: "О компании", href: "index.html" },
       {
         text: "Пасажирские перевозки",
-        href: "pages/passenger-transportation.html",
+        href: "passenger-transportation.html",
       },
-      { text: "Контакты", href: "pages/contacts.html" },
-      { text: "Заказ автобуса", href: "pages/order-bas.html" },
+      { text: "Контакты", href: "contacts.html" },
+      { text: "Заказ автобуса", href: "order-bas.html" },
     ];
     const currentUrl = window.location.pathname;
 
@@ -211,13 +210,13 @@ export const functions = {
       const activeClass = currentUrl.endsWith(link.href)
         ? "div_item-active"
         : "";
-      headerHtml += `<a class="div_item ${activeClass}" href="../${link.href}">${link.text}</a>`;
+      headerHtml += `<a class="div_item ${activeClass}" href="./${link.href}">${link.text}</a>`;
     });
 
     headerHtml += `
     </div>
-      <a class="float-logo" href="../index.html">
-        <img class="div_logo" src="../img/logo.png" alt="" />
+      <a class="float-logo" href="./index.html">
+        <img class="div_logo" src="./img/logo.png" alt="" />
       </a>
       <a class="float-phone" href="tel:89106423810">8 (910) 642-38-10</a>
     </div>
